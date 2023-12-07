@@ -1,0 +1,19 @@
+query RunInput {
+  cart {
+    lines {
+      attribute(key: "_gwp") {
+        key
+      }
+      quantity
+      merchandise {
+        ... on ProductVariant {
+          id
+          product {
+            hasAnyTag(tags: ["GWP"])
+          }
+        }
+        __typename
+      }
+    }
+  }
+}
